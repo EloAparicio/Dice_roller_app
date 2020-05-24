@@ -3,9 +3,8 @@ package com.elap.example.android.diceroller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
-import org.w3c.dom.Text
+import android.widget.ImageView
+import kotlinx.android.synthetic.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,16 +13,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val acceptButton: Button = findViewById(R.id.accept_button)
-        acceptButton.text = "Aceptar"
+        acceptButton.text = "Tirar Dado"
         acceptButton.setOnClickListener{
             rollDice()
         }
     }
 
     private fun rollDice() {
-        val resultText: TextView = findViewById(R.id.result_text)
         val randomNumber = Random().nextInt(6) + 1
-        resultText.text = randomNumber.toString()
-
+        val drawableResource = when (randomNumber){
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+        val diceImage: ImageView = findViewById(R.id.dice_image)
+        diceImage.setImageResource(drawableResource)
     }
 }
