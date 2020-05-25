@@ -1,11 +1,9 @@
 package com.elap.example.android.diceroller
 
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import kotlinx.android.synthetic.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
